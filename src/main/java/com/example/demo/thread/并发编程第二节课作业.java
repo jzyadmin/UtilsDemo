@@ -18,33 +18,32 @@ public class 并发编程第二节课作业 {
             new Thread(new RunDemo()).start();
         }
     }
+    static class RunDemo implements Runnable{
 
-}
-
-class RunDemo implements Runnable{
-
-    @Override
-    public void run() {
-        synchronized (this) {
-            while (并发编程第二节课作业.size >= 并发编程第二节课作业.maxSize) {
-                try {
-                    System.out.println(Thread.currentThread().getName()+"-当前数量"+并发编程第二节课作业.size);
-                    this.wait();
-                } catch (InterruptedException e) {
+        @Override
+        public void run() {
+            synchronized (this) {
+                while (并发编程第二节课作业.size >= 并发编程第二节课作业.maxSize) {
+                    try {
+                        System.out.println(Thread.currentThread().getName()+"-当前数量"+并发编程第二节课作业.size);
+                        this.wait();
+                    } catch (InterruptedException e) {
+                    }
                 }
             }
-        }
 
-        并发编程第二节课作业.size++;
-        try {
-            Thread.sleep(10);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println(Thread.currentThread().getName()+"-开始执行"+并发编程第二节课作业.size);
-        并发编程第二节课作业.size--;
-        synchronized (this) {
-            this.notifyAll();
+            并发编程第二节课作业.size++;
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(Thread.currentThread().getName()+"-开始执行"+并发编程第二节课作业.size);
+            并发编程第二节课作业.size--;
+            synchronized (this) {
+                this.notifyAll();
+            }
         }
     }
 }
+

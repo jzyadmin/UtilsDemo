@@ -5,6 +5,7 @@ import com.example.utils.SerializeUtil;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * 单例模式，发令枪测试单例创建
@@ -21,6 +22,7 @@ public class CountDownLatchTest {
     public static void main(String rgs[]) throws InterruptedException {
         //发令枪测试
         CountDownLatch doneSignal = new CountDownLatch(N);
+
         Executor service = Executors.newCachedThreadPool();
         for (int i = 0; i < N; ++i) // create and start threads
             service.execute(new WorkerRunnable(doneSignal, i));
@@ -40,8 +42,13 @@ class WorkerRunnable implements Runnable {
         this.i = i;
     }
     public void run() {
-        doWork(i);
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         doneSignal.countDown();
+        doWork(i);
     }
 
     // TODO 其他业务测试在此方法内修改代码即可
