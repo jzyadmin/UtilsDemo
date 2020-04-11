@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<xsd:schema xmlns="http://www.jfun365.cn/schema/test"
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://www.jfun365.cn/schema/test"
+			elementFormDefault="qualified"
+			attributeFormDefault="unqualified">
+	<xsd:element name="redis">
+		<xsd:complexType>
+			<xsd:attribute name="id"/>
+			<xsd:attribute name="host"/>
+			<xsd:attribute name="port"/>
+			<xsd:attribute name="database"/>
+			<xsd:attribute name="password"/>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
