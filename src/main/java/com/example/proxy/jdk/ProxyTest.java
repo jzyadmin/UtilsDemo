@@ -1,4 +1,4 @@
-package com.example.proxy;
+package com.example.proxy.jdk;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -14,6 +14,7 @@ public class ProxyTest{
         ProxyStudentImpl ps = new ProxyStudent();
         ProxyStudentImpl impl = (ProxyStudentImpl) Proxy.newProxyInstance(ProxyStudent.class.getClassLoader(), new Class<?>[] { ProxyStudentImpl.class }, new ProxyInvo(ps));
         impl.print2();
+        System.out.println("-------------------------------------");
         impl.print();
     }
 }
@@ -43,17 +44,17 @@ interface ProxyStudentImpl {
 class ProxyStudent implements ProxyStudentImpl{
     @Override
     public void print() {
-        System.out.println("进入打印流程。。。。。");
+        System.out.println("print 进入打印流程。。。。。");
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("打印流程结束。。。。。");
+        System.out.println("print 打印流程结束。。。。。");
     }
 
     @Override
     public void print2() {
-        System.out.println("2222222222222。。。。。");
+        System.out.println("print2 2222222222222。。。。。");
     }
 }

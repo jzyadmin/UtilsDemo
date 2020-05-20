@@ -1,8 +1,6 @@
 package bean.autowired;
 
-import bean.Man;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -15,6 +13,8 @@ import javax.annotation.PreDestroy;
  **/
 @Service
 public class ServiceDemo {
+    @Autowired
+    AutowiredDemo demo;
 
     @PostConstruct
     private void init() {

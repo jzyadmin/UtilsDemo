@@ -1,4 +1,5 @@
 import bean.Man;
+import bean.autowired.AutowiredDemo;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,10 +15,10 @@ import org.springframework.stereotype.Component;
 public class SpringStartMain {
 
     public static void main(String[] args) {
-        ApplicationContext context = ClassPathXmlApplicationContext();
-        Man man = (Man) context.getBean("man");
-        man.setName("2222");
-        System.out.println("args = [" + man.getName() + "]");
+        ApplicationContext context = AnnotationConfigApplicationContext();
+        AutowiredDemo man = (AutowiredDemo) context.getBean("autowiredDemo");
+
+//        System.out.println("args = [" + man.getName() + "]");
     }
 
     public static ApplicationContext ClassPathXmlApplicationContext() {
@@ -25,8 +26,8 @@ public class SpringStartMain {
         return context;
     }
 
-    public static ApplicationContext  AnnotationConfigApplicationContext() {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("bean");
+    public static ApplicationContext AnnotationConfigApplicationContext() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("aop" , "bean");
         return context;
     }
 }

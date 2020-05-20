@@ -11,6 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.util.StopWatch;
 
 /**
  * 启动方法
@@ -37,6 +38,17 @@ public class SpringStartMain {
         FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("E:\\testadm\\UtilsDemo\\spring-demo\\src\\main\\resources\\springApplicationContext.xml");
         System.out.println("AnnotationConfigApplicationContext 方式启动spring");
         run(context);
+    }
+
+    @Test
+    public void testStopWatch() throws InterruptedException {
+        StopWatch stopWatch = new StopWatch();
+        for (int i = 0; i < 10; i++) {
+            stopWatch.start();
+            Thread.sleep(10);
+            stopWatch.stop();
+        }
+        System.out.println(stopWatch);
     }
 
 

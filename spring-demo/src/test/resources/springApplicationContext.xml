@@ -2,15 +2,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:test="http://www.jfun365.cn/schema/test" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.jfun365.cn/schema/test
-        http://www.jfun365.cn/schema/test.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.jfun365.cn/schema/test.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!-- 合并成一个beanDefinition -->
     <bean id="abstractMan" class="bean.AbstractMan" abstract="true"/>
     <bean class="bean.Man" destroy-method="destroy" init-method="init" parent="abstractMan">
         <property name="name" value="hello word"/>
     </bean>
+
 
     <!--自定义标签-->
     <test:redis id="redis" host="192.168.1.11" port="6379" database="8" password="root"/>
