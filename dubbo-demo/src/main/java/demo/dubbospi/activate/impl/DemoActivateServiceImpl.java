@@ -1,10 +1,10 @@
-package demo.impl;
+package demo.dubbospi.activate.impl;
 
-import demo.DemoService;
+import demo.dubbospi.activate.DemoActivateService;
 import org.apache.dubbo.common.extension.Activate;
 
 @Activate(group = {"solar"})
-public class DemoServiceImpl implements DemoService {
+public class DemoActivateServiceImpl implements DemoActivateService {
 
     @Override
     public void sayHello() {

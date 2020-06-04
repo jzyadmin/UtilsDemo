@@ -1,10 +1,9 @@
-package demo.impl;
+package demo.javaspi.impl;
 
-import demo.DemoService;
+import demo.javaspi.DemoService;
 import org.apache.dubbo.common.extension.Activate;
 import org.apache.dubbo.common.extension.Adaptive;
 
-@Activate(group = {"young"})
 public class DemoServiceImpl3 implements DemoService {
     @Override
     @Adaptive

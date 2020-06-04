@@ -1,9 +1,8 @@
-package demo.impl;
+package demo.javaspi.impl;
 
-import demo.DemoService;
+import demo.javaspi.DemoService;
 import org.apache.dubbo.common.extension.Activate;
 
-@Activate(group = {"solar" , "young"} , value = "test")
 public class DemoServiceImpl2 implements DemoService {
     @Override
     public void sayHello() {

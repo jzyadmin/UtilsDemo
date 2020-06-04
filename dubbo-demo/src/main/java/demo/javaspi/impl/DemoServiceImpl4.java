@@ -1,7 +1,6 @@
-package demo.impl;
+package demo.javaspi.impl;
 
-import demo.DemoService;
-import org.apache.dubbo.common.extension.Adaptive;
+import demo.javaspi.DemoService;
 
 
 public class DemoServiceImpl4 implements DemoService {

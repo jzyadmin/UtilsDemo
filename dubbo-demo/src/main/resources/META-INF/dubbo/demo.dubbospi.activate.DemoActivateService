@@ -1,0 +1,4 @@
+a=demo.dubbospi.activate.impl.DemoActivateServiceImpl
+b=demo.dubbospi.activate.impl.DemoActivateServiceImpl2
+c=demo.dubbospi.activate.impl.DemoActivateServiceImpl3
+d=demo.dubbospi.activate.impl.DemoActivateServiceImpl4
